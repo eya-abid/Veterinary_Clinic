@@ -1,3 +1,7 @@
+package com.example.demo.entities;
+
+import com.example.demo.entities.ClientEntity;
+
 import java.io.Serializable;
 
 import javax.persistence.*;
@@ -9,7 +13,7 @@ import javax.persistence.*;
 public class PetEntity implements Serializable{
 
 	@Id
-	private long id;
+	private Long id;
 	private String name;
 	private String species;
 	private String breed;

@@ -1,3 +1,5 @@
+package com.example.demo.entities;
+
 import java.io.Serializable;
 
 import javax.persistence.*;

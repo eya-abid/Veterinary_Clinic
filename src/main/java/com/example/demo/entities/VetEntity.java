@@ -1,3 +1,5 @@
+package com.example.demo.entities;
+
 import java.io.Serializable;
 import java.util.*;
 import javax.persistence.*;
@@ -9,7 +11,7 @@ import javax.persistence.*;
 public class VetEntity implements Serializable {
 
 	@Id 
-	private Long id;
+	private long id;
 	private String firstName;
 	private String lastName;
 	private String phoneNumber;
