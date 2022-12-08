@@ -22,7 +22,7 @@ pipeline{
 
                 script{
 
-                    sh 'mvn test'
+                    bat 'mvn test'
                 }
             }
         }
