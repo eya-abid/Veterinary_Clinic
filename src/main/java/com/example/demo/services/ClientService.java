@@ -7,8 +7,6 @@ public interface ClientService {
 
     ClientEntity findClientById(Long clientId);
 
-    Iterable<ClientEntity> findAllClients();
-
     ClientEntity updateUser(ClientEntity client);
 
     void deleteClient(Long clientId);

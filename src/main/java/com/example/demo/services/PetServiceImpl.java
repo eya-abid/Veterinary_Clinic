@@ -13,7 +13,7 @@ import java.util.Optional;
 @Service("userService")
 public class PetServiceImpl implements PetService {
 
-    @Autowired
+     
     private PetRepository petRepository;
 
     /**
@@ -36,14 +36,6 @@ public class PetServiceImpl implements PetService {
             return petOptional.get();
         }
         return null;
-    }
-
-    /**
-     * @return
-     */
-    @Override
-    public List<PetEntity> findAllPets() {
-        return (List<PetEntity>) petRepository.findAll();
     }
 
     /**

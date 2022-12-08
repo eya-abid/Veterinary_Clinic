@@ -8,8 +8,6 @@ public interface AppointmentService {
 
     AppointmentEntity findAppointmentById(Long appointmentId);
 
-    List<AppointmentEntity> findAllAppointments();
-
     AppointmentEntity updateAppointment(AppointmentEntity appointment);
 
     void deleteAppointment(Long appointmentId);

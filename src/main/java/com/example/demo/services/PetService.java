@@ -9,8 +9,6 @@ public interface PetService {
 
     PetEntity findPetById(Long petId);
 
-    List<PetEntity> findAllPets();
-
     PetEntity updateUser(PetEntity pet);
 
     void deletePet(Long petId);

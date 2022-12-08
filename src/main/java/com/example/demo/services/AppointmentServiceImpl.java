@@ -12,7 +12,7 @@ import java.util.Optional;
 @Service("AppointmentService")
 public class AppointmentServiceImpl implements AppointmentService {
 
-    @Autowired
+
     private AppointmentRepository appointmentRepository;
 
     /**
@@ -38,13 +38,6 @@ public class AppointmentServiceImpl implements AppointmentService {
         return null;
     }
 
-        /**
-         * @return
-         */
-        @Override
-        public List<AppointmentEntity> findAllAppointments() {
-            return (List<AppointmentEntity>) appointmentRepository.findAll();
-        }
 
         /**
          * @param appointment

@@ -8,8 +8,6 @@ public interface SurgeryService {
 
     SurgeryEntity findSurgeryById(Long surgeryId);
 
-    List<SurgeryEntity> findAllSurgeries();
-
     SurgeryEntity updateSurgery(SurgeryEntity surgery);
 
     void deleteSurgery(Long surgeryId);

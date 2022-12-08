@@ -11,7 +11,7 @@ import java.util.Optional;
 @Service
 public class VetServiceImpl implements VetService {
 
-    @Autowired
+     
     private VetRepository vetRepository;
 
 
@@ -35,14 +35,6 @@ public class VetServiceImpl implements VetService {
             return vetOptional.get();
         }
         return null;
-    }
-
-    /**
-     * @return
-     */
-    @Override
-    public List<VetEntity> findAllVets() {
-        return (List<VetEntity>) vetRepository.findAll();
     }
 
     /**

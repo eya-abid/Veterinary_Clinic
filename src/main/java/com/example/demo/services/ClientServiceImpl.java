@@ -12,7 +12,7 @@ import java.util.Optional;
 @Service("ClientService")
 public class ClientServiceImpl implements ClientService {
 
-    @Autowired
+
     private ClientRepository clientRepository;
 
 
@@ -38,13 +38,6 @@ public class ClientServiceImpl implements ClientService {
         return null;
     }
 
-    /**
-     * @return
-     */
-    @Override
-    public List<ClientEntity> findAllClients() {
-        return (List<ClientEntity>) clientRepository.findAll();
-    }
 
     /**
      * @param client

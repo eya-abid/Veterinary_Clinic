@@ -9,7 +9,7 @@ import java.util.Optional;
 @Service
 public class SurgeryServiceImpl implements SurgeryService {
 
-    @Autowired
+     
     private SurgeryRepository surgeryRepository;
 
     /**
@@ -34,13 +34,6 @@ public class SurgeryServiceImpl implements SurgeryService {
         return null;
     }
 
-    /**
-     * @return
-     */
-    @Override
-    public List<SurgeryEntity> findAllSurgeries() {
-        return (List<SurgeryEntity>) surgeryRepository.findAll();
-    }
 
     /**
      * @param surgery

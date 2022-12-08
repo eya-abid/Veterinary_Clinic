@@ -8,8 +8,6 @@ public interface VetService {
 
     VetEntity findVetById(Long vetId);
 
-    List<VetEntity> findAllVets();
-
     VetEntity updateVet(VetEntity vet);
 
     void deleteVet(Long vetId);
