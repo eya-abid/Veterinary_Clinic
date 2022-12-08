@@ -20,7 +20,17 @@ pipeline{
 
                 script{
 
-                    sh 'mvn test'
+                    bash 'mvn test'
+                }
+            }
+        }
+        stage('Maven build'){
+
+            steps{
+
+                script{
+
+                    bash 'mvn clean install'
                 }
             }
         }
@@ -32,7 +42,7 @@ pipeline{
 
                     withSonarQubeEnv(credentialsId: 'sonar-api') {
 
-                        sh 'mvn clean package sonar:sonar'
+                        bash 'mvn clean package sonar:sonar'
                     }
                    }
 
