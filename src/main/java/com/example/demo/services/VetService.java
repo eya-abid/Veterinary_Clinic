@@ -1,8 +1,16 @@
 package com.example.demo.services;
 
 import com.example.demo.entities.VetEntity;
+import java.util.List;
 
 public interface VetService {
-    public void addVet(VetEntity vet);
-    public void deleteVet(long id);
+    VetEntity saveVet(VetEntity vet);
+
+    VetEntity findVetById(Long vetId);
+
+    List<VetEntity> findAllVets();
+
+    VetEntity updateVet(VetEntity vet);
+
+    void deleteVet(Long vetId);
 }

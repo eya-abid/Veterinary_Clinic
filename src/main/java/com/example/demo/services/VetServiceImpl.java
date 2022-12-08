@@ -5,24 +5,60 @@ import com.example.demo.repositories.VetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class VetServiceImpl implements VetService {
 
     @Autowired
-    private final VetRepository vetRepository;
+    private VetRepository vetRepository;
 
-    public VetServiceImpl(VetRepository vetRepository) {
-        this.vetRepository = vetRepository;
-    }
 
+    /**
+     * @param vet
+     * @return
+     */
     @Override
-    public void addVet(VetEntity vet) {
-        vetRepository.save(vet);
+    public VetEntity saveVet(VetEntity vet) {
+        return vetRepository.save(vet);
     }
 
+    /**
+     * @param vetId
+     * @return
+     */
     @Override
-    public void deleteVet(long id) {
-        vetRepository.deleteById(id);
+    public VetEntity findVetById(Long vetId) {
+        Optional<VetEntity> vetOptional = vetRepository.findById(vetId);
+        if (vetOptional.isPresent()) {
+            return vetOptional.get();
+        }
+        return null;
     }
 
+    /**
+     * @return
+     */
+    @Override
+    public List<VetEntity> findAllVets() {
+        return (List<VetEntity>) vetRepository.findAll();
+    }
+
+    /**
+     * @param vet
+     * @return
+     */
+    @Override
+    public VetEntity updateVet(VetEntity vet) {
+        return vetRepository.save(vet);
+    }
+
+    /**
+     * @param vetId
+     */
+    @Override
+    public void deleteVet(Long vetId) {
+        vetRepository.deleteById(vetId);
+    }
 }
