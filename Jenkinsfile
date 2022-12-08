@@ -1,41 +1,73 @@
-pipeline {
-	agent any
-	stages{
-		stage('Git Checkout'){
-			steps{
-				git branch: 'eya', url: 'https://github.com/eya-abid/Veterinary_Clinic.git'
-			}
-		}
-		stage('Unit Testing'){
-        			steps{
-        				sh 'mvn test'
-        			}
-        		}
-        stage('Integration Testing'){
-                			steps{
-                				sh 'mvn verify -DskiUnitTests'
-                			}
-                        }
-        stage('Maven Build'){
-           steps {
-            sh 'mvn clean install'
-           }
-        }
-        stage('Analysis'){
+pipeline{
+
+    agent any
+
+    stages {
+
+        stage('Git Checkout'){
+
             steps{
+
                 script{
-                     withSonarQubeEnv(credentialsId: 'sonar-api-key') {
-                     sh 'mvn clean package sonar:sonar'
-                   }
+
+                    git branch: 'eya', url: 'https://github.com/eya-abid/Veterinary_Clinic.git'
                 }
             }
         }
-        stage('Quality Gate status'){
+        stage('UNIT testing'){
+
             steps{
-                scripts{
-                    waitForQualityGate abortPipeline: false, credentialsId: 'sonar-api-key'
+
+                script{
+
+                    sh 'mvn test'
                 }
             }
         }
-	}
-}}
+        stage('Integration testing'){
+
+            steps{
+
+                script{
+
+                    sh 'mvn verify -DskipUnitTests'
+                }
+            }
+        }
+        stage('Maven build'){
+
+            steps{
+
+                script{
+
+                    sh 'mvn clean install'
+                }
+            }
+        }
+        stage('Static code analysis'){
+
+            steps{
+
+                script{
+
+                    withSonarQubeEnv(credentialsId: 'sonar-api') {
+
+                        sh 'mvn clean package sonar:sonar'
+                    }
+                   }
+
+                }
+            }
+            stage('Quality Gate Status'){
+
+                steps{
+
+                    script{
+
+                        waitForQualityGate abortPipeline: false, credentialsId: 'sonar-api'
+                    }
+                }
+            }
+        }
+
+}
