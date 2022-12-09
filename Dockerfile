@@ -4,7 +4,7 @@ COPY . .
 RUN mvn install
 
 
-FROM openjdk:11.0.17
+FROM openjdk:11.0
 WORKDIR /app
 COPY --from=build /app/target/demo.jar /app/
 EXPOSE 9090
