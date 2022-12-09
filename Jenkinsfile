@@ -100,7 +100,7 @@ pipeline{
 
                         script{
 
-                           withCredentials([string(credentialsId: 'docker-pass', variable: 'docker-auth')]) {
+                           withCredentials([string(credentialsId: 'docker-password', variable: 'docker-auth')]) {
 
                                 sh 'docker login -u eyaabid99 -p ${docker-auth}'
                                 sh 'docker image push eyaabid99/$JOB_NAME:v1.$BUILD_ID'
