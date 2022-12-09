@@ -116,7 +116,21 @@ pipeline{
             }
         }
 
+        stage('push image to the dockerHUb'){
 
+            steps{
+
+                script{
+
+                   withCredentials([string(credentialsId: 'dockerhub_creds', variable: 'dockerhub_creds')]) {
+
+                        sh 'docker login -u bkmd100 -p ${dockerhub_creds}'
+                        sh 'docker image push bkmd100/$JOB_NAME:v1.$BUILD_ID'
+                        sh 'docker image push bkmd100/$JOB_NAME:latest'
+                 }
+                }
+            }
+        }
 
 
 
