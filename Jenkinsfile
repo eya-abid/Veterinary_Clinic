@@ -122,7 +122,7 @@ pipeline{
 
                 script{
 
-                   withCredentials([string(credentialsId: 'dockerhub_creds', variable: 'dockerhub_creds')]) {
+                    withCredentials([string(credentialsId: 'git_creds', variable: 'docker_hub_cred')]) {
 
                         sh 'docker login -u bkmd100 -p ${dockerhub_creds}'
                         sh 'docker image push bkmd100/$JOB_NAME:v1.$BUILD_ID'
