@@ -1,3 +1,5 @@
+package com.example.demo.entities;
+
 import java.io.Serializable;
 
 import javax.persistence.*;
@@ -5,33 +7,33 @@ import javax.persistence.*;
 @SuppressWarnings("serial")
 
 @Entity
-@Table(name="surgery")
+@Table(name = "surgery")
 public class SurgeryEntity implements Serializable {
 
-	@Id
-	private long id;
-	private String name;
-	private Integer price;
-	
-	@OneToOne ( mappedBy="surgery" )
-	private AppointmentEntity appointment;
-	
+    @Id
+    private long id;
+    private String name;
+    private Integer price;
+
+    @OneToOne(mappedBy = "surgery")
+    private AppointmentEntity appointment;
+
     public AppointmentEntity getAppointment() {
-		return appointment;
-	}
+        return appointment;
+    }
 
-	public void setAppointment(AppointmentEntity appointment) {
-		this.appointment = appointment;
-	}
+    public void setAppointment(AppointmentEntity appointment) {
+        this.appointment = appointment;
+    }
 
-	public long getId() {
+    public long getId() {
         return id;
     }
 
     public void setId(long id) {
         this.id = id;
     }
-    
+
     public String getName() {
         return name;
     }
@@ -52,9 +54,9 @@ public class SurgeryEntity implements Serializable {
     public String toString() {
         return name;
     }
-    
-	public SurgeryEntity() {
-		// TODO Auto-generated constructor stub
-	}
+
+    public SurgeryEntity() {
+        // TODO Auto-generated constructor stub
+    }
 
 }
