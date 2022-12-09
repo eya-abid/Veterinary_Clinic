@@ -75,7 +75,9 @@ pipeline{
 						stage('Upload war file to nexus'){
                             steps {
                             script{
-									nexusArtifactUploader artifacts: [[artifactId: 'demo', classifier: '', file: 'target/demo-0.0.1-SNAPSHOT.jar', type: 'jar']], credentialsId: 'nexus-auth', groupId: 'com.example', nexusUrl: 'localhost:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'sonarqube-webhook', version: '0.0.1'
+									nexusArtifactUploader artifacts: [
+									[artifactId: 'demo', classifier: '', file: 'target/demo-0.0.1-SNAPSHOT.jar', type: 'jar']
+									], credentialsId: 'nexus-auth', groupId: 'com.example', nexusUrl: 'localhost:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'sonarqube-webhook', version: '0.0.1'
                             							}
                             }
 
