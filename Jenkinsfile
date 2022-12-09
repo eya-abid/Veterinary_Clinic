@@ -80,7 +80,7 @@ pipeline{
                             			[
                             			    artifactId: 'spring-boot-starter-parent',
                             				classifier: '',
-                            				file: 'target/demo.jar',
+                            				file: 'target/demo-0.0.1-SNAPSHOT.jar',
                             				type: 'jar']
                             				],
                             				credentialsId: '',
