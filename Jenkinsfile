@@ -71,29 +71,30 @@ pipeline{
                                 }
                             }
                         }
+
 						stage('Upload war file to nexus'){
-							script{
-							nexusArtifactUploader artifacts: [
-							[
-								artifactId: 'spring-boot-starter-parent',
-								classifier: '',
-								file: 'target/demo.jar',
-								type: 'jar']
-								],
-								credentialsId: '',
-								groupId: 'com.example',
-								nexusUrl: 'localhost:8081',
-								nexusVersion: 'nexus3',
-								protocol: 'http',
-								repository: 'demo',
-								version: '0.0.1-SNAPSHOT'
-							}
+                            steps {
+                            script{
+
+                            		nexusArtifactUploader artifacts: [
+                            			[
+                            			    artifactId: 'spring-boot-starter-parent',
+                            				classifier: '',
+                            				file: 'target/demo.jar',
+                            				type: 'jar']
+                            				],
+                            				credentialsId: '',
+                            				groupId: 'com.example',
+                            				nexusUrl: 'localhost:8081',
+                            				nexusVersion: 'nexus3',
+                            				protocol: 'http',
+                            				repository: 'demo',
+                            				version: '0.0.1-SNAPSHOT'
+                            							}
+                            }
+
 						}
 
-
-
         }
-
-
 
 }
